@@ -38,14 +38,10 @@ body {
   border: solid pink 1px;
 }
 
-/* .grocery-container { */
-/* min-height: 80vh; */
-/* display: flex; */
-/* padding: 5px; */
-/* align-content: flex-start; */
-/* justify-content: space-between; */
-/* border: solid red 1px; */
-/* } */
+.grocery-container {
+  visibility: hidden;
+  border: solid orange 3px;
+}
 
 .grocery-item {
   /* min-height: 80vh; */
@@ -55,4 +51,19 @@ body {
   align-items: center;
   border: solid yellow 1px;
   gap: 10px;
+}
+
+.alert {
+  height: 1.25 rem;
+  width: 1 rem;
+}
+
+.alert-danger {
+  color: red;
+  background-color: #555;
+}
+
+.alert-success {
+  color: green;
+  background-color: #555;
 }
