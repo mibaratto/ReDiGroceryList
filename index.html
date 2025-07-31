@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grocery List</title>
+    <!-- font -->
+    <link rel="stylesheet" href="" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <section class="section-center">
+      <!-- Form -->
+      <form class="grocery-form">
+        <p class="alert"></p>
+        <h3>Grocery List</h3>
+        <div class="form-control">
+          <input type="text" id="grocery" placeholder="e.g. eggs" />
+          <button type="submit" class="submit-btn">submit</button>
+        </div>
+        <!-- list -->
+        <div class="grocery-container">
+          <div class="grocery-lis">
+            <article class="grocery-item">
+              <p class="title">item</p>
+              <div class="btn-container">
+                <button type="button" class="edit-btn">Icon</button>
+                <button type="button" class="delet-btn">Icon</button>
+              </div>
+            </article>
+          </div>
+          <!-- button -->
+          <button type="button" class="clear-btn">Clear items</button>
+        </div>
+      </form>
+    </section>
+    <!-- javascript -->
+    <script src="app.js"></script>
+  </body>
+</html>
