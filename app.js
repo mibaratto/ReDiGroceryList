@@ -37,8 +37,12 @@ function addItem(event) {
     element.innerHTML = `<p class="title">${value}</p>
             <div class="btn-container">
               <button type="button" class="edit-btn">Icon</button>
-              <button type="button" class="delet-btn">Icon</button>
+              <button type="button" class="delete-btn">Icon</button>
             </div>`;
+    const deleteBtn = element.querySelector(".delete-btn");
+    const editBtn = element.querySelector(".edit-btn");
+    deleteBtn.addEventListener("click", deleteItem);
+    editBtn.addEventListener("click", editItem);
     // append child
     list.appendChild(element);
     // display alert
@@ -65,6 +69,19 @@ function displayAlert(text, action) {
     alert.classList.remove(`alert-${action}`);
   }, 1000);
 }
+// delete function
+function deleteItem(e) {
+  const element = e.currentTarget.parentElement.parentElement;
+  list.removeChild(element);
+  if (list.children.length === 0) {
+    container.classList.remove("show-container");
+  }
+}
+
+// edit function
+function editItem() {
+  console.log("Edit Item");
+}
 // set back to default
 function setBackToDefault() {
   grocery.value = "";
@@ -82,6 +99,10 @@ function clearItems() {
       list.removeChild(item);
     });
   }
+  container.classList.remove("show-container");
+  displayAlert("empty list", "danger");
+  setBackToDefault();
+  // localStorage.removeItem("list");
 }
 
 // ----- Local Storage
