@@ -43,6 +43,11 @@ body {
   border: solid orange 3px;
 }
 
+.show-container {
+  visibility: visible;
+  border: solid orange 3px;
+}
+
 .grocery-item {
   /* min-height: 80vh; */
   display: flex;

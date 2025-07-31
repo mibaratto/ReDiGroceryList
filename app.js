@@ -17,6 +17,10 @@ let editID = "";
 // ----- Even Listeners
 // submit form
 form.addEventListener("submit", addItem);
+
+// clear items
+clearBtn.addEventListener("click", clearItems);
+
 // ----- Functions
 function addItem(event) {
   event.preventDefault();
@@ -25,7 +29,26 @@ function addItem(event) {
   if (value !== "" && editFlag === false) {
     const element = document.createElement("article");
     // add class
-    element.classList.add("");
+    element.classList.add("grocery-item");
+    //add id
+    const attr = document.createAttribute("data-id");
+    attr.value = id;
+    element.setAttributeNode(attr);
+    element.innerHTML = `<p class="title">${value}</p>
+            <div class="btn-container">
+              <button type="button" class="edit-btn">Icon</button>
+              <button type="button" class="delet-btn">Icon</button>
+            </div>`;
+    // append child
+    list.appendChild(element);
+    // display alert
+    displayAlert("Item added", "success");
+    // show container
+    container.classList.add("show-container");
+    // add to local storage
+    addToLocalStorage(id, value);
+    // set back to default
+    setBackToDefault();
   } else if (value !== "" && editFlag === true) {
     console.log("editing");
   } else {
@@ -42,7 +65,28 @@ function displayAlert(text, action) {
     alert.classList.remove(`alert-${action}`);
   }, 1000);
 }
+// set back to default
+function setBackToDefault() {
+  grocery.value = "";
+  editFlag = false;
+  editID = "";
+  submitBtn.textContent = "submit";
+}
+
+// clear Items
+function clearItems() {
+  const items = document.querySelectorAll(".grocery-item");
+
+  if (items.length > 0) {
+    items.forEach(function (item) {
+      list.removeChild(item);
+    });
+  }
+}
 
 // ----- Local Storage
+function addToLocalStorage(id, value) {
+  console.log("added to local storage");
+}
 
 // ----- Setup Items
