@@ -45,7 +45,7 @@ function addItem(event) {
     editLocalStorage(editID, value);
     setBackToDefault();
   } else {
-    displayAlert("please enter a value", "danger");
+    displayAlert("Please enter a value!", "danger");
   }
 }
 // display alert
@@ -56,7 +56,7 @@ function displayAlert(text, action) {
   setTimeout(function () {
     alert.textContent = "";
     alert.classList.remove(`alert-${action}`);
-  }, 1000);
+  }, 2000);
 }
 // delete function
 function deleteItem(e) {
@@ -166,8 +166,8 @@ function createListItem(id, value) {
   element.setAttributeNode(attr);
   element.innerHTML = `<p class="title">${value}</p>
             <div class="btn-container">
-              <button type="button" class="edit-btn">Icon</button>
-              <button type="button" class="delete-btn">Icon</button>
+              <button type="button" class="edit-btn">Edit</button>
+              <button type="button" class="delete-btn">Delete</button>
             </div>`;
   const deleteBtn = element.querySelector(".delete-btn");
   const editBtn = element.querySelector(".edit-btn");
